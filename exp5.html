@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Events</title>
+
+    <script>
+        function showMessage() {
+            alert("Button Clicked!");
+        }
+
+        function changeColor() {
+            document.getElementById("text").style.color = "red";
+        }
+
+        function resetColor() {
+            document.getElementById("text").style.color = "black";
+        }
+    </script>
+</head>
+
+<body>
+
+<h2 id="text" onmouseover="changeColor()" onmouseout="resetColor()">
+    Hover over this text
+</h2>
+
+<br>
+
+<button onclick="showMessage()">Click Me</button>
+
+</body>
+</html>

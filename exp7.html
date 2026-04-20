@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Content using DOM</title>
+</head>
+
+<body>
+
+<h2 id="heading">Welcome</h2>
+
+<button onclick="changeText()">Click Me</button>
+
+<script>
+    function changeText() {
+        document.getElementById("heading").innerHTML = "Hello Aditya! This is dynamic content.";
+    }
+</script>
+
+</body>
+</html>

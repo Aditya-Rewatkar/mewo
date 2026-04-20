@@ -1,0 +1,58 @@
+CREATE DATABASE student_db;
+
+USE student_db;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(50)
+);
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Data</title>
+</head>
+
+<body>
+
+<h2>Student Form</h2>
+
+<form action="insert.php" method="POST">
+    Name: <input type="text" name="name"><br><br>
+    Email: <input type="text" name="email"><br><br>
+
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>
+
+
+
+<?php
+$conn = mysqli_connect("localhost", "root", "", "student_db");
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Get form data
+$name = $_POST['name'];
+$email = $_POST['email'];
+
+// Insert query
+$sql = "INSERT INTO students (name, email) VALUES ('$name', '$email')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "Data inserted successfully!";
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
+
+// Close connection
+mysqli_close($conn);
+?>
